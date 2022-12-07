@@ -12,3 +12,4 @@ Here I keep my solutions for the Advent of Code of 2022.
 4. [Day 4](day4/day4.py)
 5. [Day 5](day5/day5.py)
 6. [Day 6](day6/day6.py)
+7. [Day 7](day7/day7.py)
