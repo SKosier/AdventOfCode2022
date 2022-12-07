@@ -14,29 +14,21 @@ def isOverlap(firstPair, secondPair):
     return isContained(firstPair, secondPair)
 
 
-def fullyContainedPairs(lines):
-    sum = 0
-    for l in lines:
-        firstPair = l.strip().split(',')[0].split('-')
-        secondPair = l.strip().split(',')[1].split('-')
-        if isContained([eval(i) for i in firstPair], [eval(i) for i in secondPair]):
-            sum += 1
-    return sum
-
-
-def overlappingPairs(lines):
-    sum = 0
-    for l in lines:
-        firstPair = l.strip().split(',')[0].split('-')
-        secondPair = l.strip().split(',')[1].split('-')
-        if isOverlap([eval(i) for i in firstPair], [eval(i) for i in secondPair]):
-            sum += 1
-    return sum
-
-
 if __name__ == '__main__':
     f = open('./day4_input.txt', 'r')
     lines = f.readlines()
 
-    print(fullyContainedPairs(lines))
-    print(overlappingPairs(lines))
+    fullyContainedPairs = 0
+    overlappingPairs = 0
+
+    for l in lines:
+        firstPair = l.strip().split(',')[0].split('-')
+        secondPair = l.strip().split(',')[1].split('-')
+
+        if isContained([eval(i) for i in firstPair], [eval(i) for i in secondPair]):
+            fullyContainedPairs += 1
+        if isOverlap([eval(i) for i in firstPair], [eval(i) for i in secondPair]):
+            overlappingPairs += 1
+
+    print(fullyContainedPairs)
+    print(overlappingPairs)
